@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Courses</title>
+    <link rel="stylesheet" href="enrollment.css">
+</head>
+<body>
+    <header>
+        <div class="img">
+            <img src="Logo_of_Premier_University_(PU).png" alt="Logo" class="logo">
+        </div>
+        <div>
+            <h1 class="university-name">Premier University</h1>
+        </div>
+    </header>
+    <div>
+        <div class="sidebar">
+            <div class="nav">
+                <a href="home.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+                <a href="enrollment.html">Enrollment</a>
+                <a href="routine.html">Class Schedule</a>
+                <a href="evaluation.html">Evaluation</a>
+                <a href="payment.html">Payment</a>
+                <a href="login.html">Sign Out</a>
+            </div>
+        </div>
+        <h2 class="head">Selected Courses</h2>
+        <div class="selected-courses" id="selected-courses-container"></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const selectedCoursesContainer = document.getElementById('selected-courses-container');
+                const selectedCourses = JSON.parse(localStorage.getItem('selectedCourses')) || [];
+
+                if (selectedCourses.length > 0) {
+                    const table = document.createElement('table');
+                    table.innerHTML = `
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Course Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${selectedCourses.map(course => `
+                                <tr>
+                                    <td>${course.courseName}</td>
+                                    <td>${course.courseType}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    `;
+                    selectedCoursesContainer.appendChild(table);
+                } else {
+                    selectedCoursesContainer.textContent = 'No courses selected.';
+                }
+            });
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+
+            var i;
+            for (i = 0; i < dropdown.length; i++) {
+              dropdown[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                  dropdownContent.style.display = "none";
+                } else {
+                  dropdownContent.style.display = "block";
+                }
+              });
+            }
+        </script>
+    </div>
+</body>
+</html>

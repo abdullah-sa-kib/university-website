@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment</title>
+    <link rel="stylesheet" href="enrollment.css">
+</head>
+<body>
+    <header>
+        <div class="img">
+            <img src="Logo_of_Premier_University_(PU).png" alt="Logo" class="logo">
+        </div>
+        <div>
+            <h1 class="university-name">Premier University</h1>
+        </div>
+    </header>
+    <div>
+        <div class="sidebar">
+            <div class="nav">
+                <a href="home.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+                <a href="enrollment.html">Enrollment</a>
+                <a href="routine.html">Class Schedule</a>
+                <a href="evaluation.html">Evaluation</a>
+                <a href="payment.html">Payment</a>
+                <a href="login.html">Sign Out</a>
+            </div>
+        </div>
+        <h2 class="head">Select the semester you want to enroll</h2>
+        <div class="enrollment">
+            <select id="semester-select" name="semester">
+                <option value="">Semester</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+            </select>
+            <div id="table-container"></div>
+            <button id="submit-btn" style="display: none;">Submit</button>
+        </div>
+        <h2 id="selected-courses-headline" class="head hidden">Selected Courses</h2>
+        <div id="selected-courses-container" class="center hidden"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const semesterSelect = document.getElementById('semester-select');
+            const tableContainer = document.getElementById('table-container');
+            const submitBtn = document.getElementById('submit-btn');
+            const selectedCoursesHeadline = document.getElementById('selected-courses-headline');
+            const selectedCoursesContainer = document.getElementById('selected-courses-container');
+
+            const tablesData = [
+                {
+                    semester: 2,
+                    table: `<table>
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Course Name</th>
+                                        <th>Course Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" class="course-checkbox"></td>
+                                        <td>Data Structures</td>
+                                        <td>
+                                            <select class="course-type-select">
+                                                <option value="Regular">Regular</option>
+                                                <option value="Retake">Retake</option>
+                                                <option value="Recourse">Recourse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="course-checkbox"></td>
+                                        <td>Data Structures Lab</td>
+                                        <td>
+                                            <select class="course-type-select">
+                                                <option value="Regular">Regular</option>
+                                                <option value="Retake">Retake</option>
+                                                <option value="Recourse">Recourse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="course-checkbox"></td>
+                                        <td>Number Theory</td>
+                                        <td>
+                                            <select class="course-type-select">
+                                                <option value="Regular">Regular</option>
+                                                <option value="Retake">Retake</option>
+                                                <option value="Recourse">Recourse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="course-checkbox"></td>
+                                        <td>Introductions to Physics</td>
+                                        <td>
+                                            <select class="course-type-select">
+                                                <option value="Regular">Regular</option>
+                                                <option value="Retake">Retake</option>
+                                                <option value="Recourse">Recourse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="course-checkbox"></td>
+                                        <td>Physics Lab</td>
+                                        <td>
+                                            <select class="course-type-select">
+                                                <option value="Regular">Regular</option>
+                                                <option value="Retake">Retake</option>
+                                                <option value="Recourse">Recourse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>`
+                },
+                {
+                    semester: 3,
+                    table: `<table>
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Course Name</th>
+                                        <th>Course Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" class="course-checkbox"></td>
+                                        <td>Discrete Mathematics</td>
+                                        <td>
+                                            <select class="course-type-select">
+                                                <option value="Regular">Regular</option>
+                                                <option value="Retake">Retake</option>
+                                                <option value="Recourse">Recourse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="course-checkbox"></td>
+                                        <td>Discrete Mathematics Lab</td>
+                                        <td>
+                                            <select class="course-type-select">
+                                                <option value="Regular">Regular</option>
+                                                <option value="Retake">Retake</option>
+                                                <option value="Recourse">Recourse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="course-checkbox"></td>
+                                        <td>Introduction to Database</td>
+                                        <td>
+                                            <select class="course-type-select">
+                                                <option value="Regular">Regular</option>
+                                                <option value="Retake">Retake</option>
+                                                <option value="Recourse">Recourse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="course-checkbox"></td>
+                                        <td>Introduction to Computer Networks</td>
+                                        <td>
+                                            <select class="course-type-select">
+                                                <option value="Regular">Regular</option>
+                                                <option value="Retake">Retake</option>
+                                                <option value="Recourse">Recourse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="course-checkbox"></td>
+                                        <td>Operating Systems</td>
+                                        <td>
+                                            <select class="course-type-select">
+                                                <option value="Regular">Regular</option>
+                                                <option value="Retake">Retake</option>
+                                                <option value="Recourse">Recourse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>`
+                }
+            ];
+
+            const displayTable = (semester) => {
+                const table = tablesData.find(table => table.semester === parseInt(semester));
+                if (table) {
+                    tableContainer.innerHTML = table.table;
+                    submitBtn.style.display = 'block';
+                } else {
+                    tableContainer.innerHTML = '';
+                    submitBtn.style.display = 'none';
+                }
+            };
+
+            const displaySelectedCourses = (courses) => {
+                let selectedTable = `<table>
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Course Type</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+
+                courses.forEach(course => {
+                    selectedTable += `
+                        <tr>
+                            <td>${course.courseName}</td>
+                            <td>${course.courseType}</td>
+                            <td>Pending</td>
+                        </tr>`;
+                });
+
+                selectedTable += `</tbody></table>`;
+                selectedCoursesContainer.innerHTML = selectedTable;
+                selectedCoursesHeadline.classList.remove('hidden');
+                selectedCoursesContainer.classList.remove('hidden');
+            };
+
+            semesterSelect.addEventListener('change', () => {
+                displayTable(semesterSelect.value);
+            });
+
+            submitBtn.addEventListener('click', () => {
+                const selectedCourses = [];
+                const checkboxes = document.querySelectorAll('.course-checkbox:checked');
+                checkboxes.forEach(checkbox => {
+                    const row = checkbox.closest('tr');
+                    const courseName = row.children[1].textContent;
+                    const courseType = row.querySelector('.course-type-select').value;
+                    selectedCourses.push({ courseName, courseType });
+                });
+                displaySelectedCourses(selectedCourses);
+            });
+
+            displayTable(semesterSelect.value);
+        });
+    </script>
+</body>
+</html>
