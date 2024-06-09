@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display:flex;
+    justify-content:left;
+    align-items: center;
+    padding: 10px 20px;
+    background-color:#02344f9c;
+    color: white;
+}
+.img{
+ width: 40%;
+}
+.logo {
+    width: 100px;
+    height: 80px;
+}
+.university-name {
+    text-align: left;
+    justify-content: center;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d0e2fe;
+}
+.container {
+    width: 1400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #d0e2fe;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 200px;
+    height: 100%;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    float: left;
+    margin-top: 104px;
+    text-align: center;
+}
+.sidebar .logo #logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    width:100px ;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.sidebar .nav {
+    padding: 20px;
+}
+.sidebar .nav a {
+    display:block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #000000;
+    padding: 10px;
+    border-radius: 20px;
+    text-align:justify;
+}
+.sidebar .nav a:hover {
+    color: #000000;
+    background-color: #2a4877a1;
+}
+.heading{
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    color: #4981d7;
+}
+.head{
+    margin-top: 100px;
+    text-align: left;
+    text-decoration: underline;
+}
+.dropdown {
+    position:sticky;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #333;
+    min-width: 200px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.enrollment{
+    margin-left: 850px;
+    margin-top: 20px;
+    margin-right: 100px;
+    padding: 10px;
+}
+table, th, td {
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: left;
+}
+th {
+    background-color: #ffffff;
+}
+
+  
+  .head {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #semester-select {
+    display:flex;
+    text-align: center;
+    width: 20%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  #table-container tr:nth-child(even){
+    background-color: white;
+
+  }
+  #table-container tr:nth-child(odd){
+    background-color: rgb(192, 225, 167);
+
+  }
+  #table-container{
+    width: 50%;
+  }
+#submit-btn{
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-color: transparent;
+    width: 10%;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.center table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.center th, .center td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.center th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #f2f2f2;
+}
+.hidden {
+    display: none;
+}
